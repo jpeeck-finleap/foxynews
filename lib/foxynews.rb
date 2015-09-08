@@ -1,0 +1,2 @@
+module Foxynews
+end
