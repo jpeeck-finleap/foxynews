@@ -1,0 +1,18 @@
+<div class="content" id="panel_details">
+  <p id="pressroom_name"><%= pressroom.name %></p>
+  <p id="pressroom_contact_info"><%= pressroom.contact_info %></p>
+</div>
+<ul id="pressroom_links">
+  <li>
+    <i class="ss-globe"/>
+    <a href=<%= pressroom.urls['homepage'] %>><%= t('pressroom.main_website') %></a>
+  </li>
+  <li>
+    <i class="ss-building"/>
+    <a href=<%= pressroom.urls['blog'] %>><%= t('pressroom.company_blog') %></a>
+  </li>
+  <li>
+    <i class="ss-mail"/>
+    <a href=<%= pressroom.urls['contact'] %>><%= t('pressroom.contact_us') %></a>
+  </li>
+</ul>

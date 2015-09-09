@@ -1,0 +1,10 @@
+<h1><%= @presskit.title %></h1>
+
+<% @presskit.media.each do |media| %>
+  <div class="media-item">
+    <h2><%= media.title %></h2>
+    <img src=<%= media.sizes['medium']['url'] %> height=<%= media.sizes['medium']['height'] %> width=<%= media.sizes['medium']['width'] %> />
+
+    <a href=<%= media.sizes['original']['url'] %> download=<%= media.title %>><%= t('presskit.download') %></a>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<section class="hide-for-print" id="information">
+  <dl class="accordion" data-accordion>
+    <dd>
+      <a href="#panel_details">
+        <i class="ss-info custom-text-color"/>
+        <span><%= t('pressroom.contact.header') %></span>
+      </a>
+      <%= render partial: 'foxynews/partials/contact_details', locals: {pressroom: pressroom} %>
+    </dd>
+    <% if pressroom.pr_contacts.present? %>
+      <dd>
+        <a href="#panel_contacts">
+          <i class="ss-info custom-text-color"/>
+          <span><%= t('pressroom.contact.spokesman') %></span>
+        </a>
+        <%= render partial: 'foxynews/partials/spokesman_details', locals: {pr_contacts: pressroom.pr_contacts} %>
+      </dd>
+    <% end %>
+    <dd class="hide-for-print">
+      <a href="#panel_social">
+        <i class="ss-megaphone custom-text-color"/>
+        <span><%= t('pressroom.contact.social_media') %></span>
+      </a>
+      <%= render partial: 'foxynews/partials/contact_social_media', locals: {pressroom: pressroom} %>
+    </dd>
+  </dl>
+</section>
+

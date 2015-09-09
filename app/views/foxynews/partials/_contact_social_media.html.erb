@@ -1,0 +1,17 @@
+<div class="content" id="panel_social">
+  <% if pressroom.urls['facebook'].present? %>
+    <a href=<%= pressroom.urls['facebook'] %> title="Facebook"><i class="social-facebook"/></a>
+  <% end %>
+  <% if pressroom.urls['twitter'].present? %>
+    <a href=<%= pressroom.urls['twitter'] %> title="Twitter"><i class="social-twitter"/></a>
+  <% end %>
+  <% if pressroom.urls['linkedin'].present? %>
+    <a href=<%= pressroom.urls['linkedin'] %> title="Linkedin"><i class="social-linkedin"/></a>
+  <% end %>
+  <% if pressroom.urls['googleplus'].present? %>
+    <a href=<%= pressroom.urls['googleplus'] %> title="Googleplus"><i class="social-googleplus"/></a>
+  <% end %>
+  <% if pressroom.urls['instagram'].present? %>
+    <a href=<%= pressroom.urls['instagram'] %> title="Instagram"><i class="social-instagram"/></a>
+  <% end %>
+</div>

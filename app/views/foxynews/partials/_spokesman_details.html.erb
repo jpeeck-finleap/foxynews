@@ -1,0 +1,31 @@
+<div class="content" id="panel_contacts">
+  <ul id="pr_contacts">
+    <% pr_contacts.each do |prc| %>
+      <li class="<%= (prc.id == pr_contacts.first.id) ? 'first' : '' %>">
+        <img alt=<%= prc.name %> class="avatar" src=<%= prc.avatar['medium_square']['url'] %> width=<%= prc.avatar['medium_square']['width'] %> height=<%= prc.avatar['medium_square']['height'] %>/>
+        <div class="nice_texts">
+          <p class="contact_name"><%= prc.name %></p>
+          <div class="contact_info">
+            <a href=<%= "mailto:#{prc.contact_info}" %>><%= prc.contact_info %></a>
+          </div>
+          <% if prc.usernames.has_key?('skype') %>
+            <p class="skype_username">
+              <a class="track_event" href=<%= prc.urls['skype'] %> data-action="click skype link" data-category="pressdoc sidebar events" data-label="skype link">
+                <i class="social-skype"/>
+                <%= prc.usernames['skype'] %>
+              </a>
+            </p>
+          <% end %>
+          <% if prc.usernames.has_key?('twitter') %>
+            <p class="twitter_username">
+              <a class="track_event" href=<%= prc.urls['twitter'] %> data-action="click twitter link" data-category="pressdoc sidebar events" data-label="twitter link">
+                <i class="social-twitter"/>
+                <%= prc.usernames['twitter'] %>
+              </a>
+            </p>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

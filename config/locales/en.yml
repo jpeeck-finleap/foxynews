@@ -1,0 +1,28 @@
+en:
+  presskit:
+    download: Download
+    view: View
+  pressroom:
+    main_website: Main Website
+    company_blog: Company Blog
+    contact_us: Contact
+    contact:
+      header: Contact
+      information: Contact Information
+      spokesman: Spokesperson
+      social_media: Social Media
+    about: About
+    timeline:
+      clipping:
+        source: 'Source:'
+      paging:
+        first: First
+        previous: Previous
+        next: Next
+  press_release:
+    read: Read Press Release
+  pagination:
+    first: First
+    previous: Prev
+    next: Next
+  error: We're sorry there was an error displaying this story

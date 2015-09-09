@@ -1,0 +1,50 @@
+<div class="row" id="pressroom_items">
+  <% timeline.data.each do |month, data| %>
+    <div class="default_content_block">
+      <h4 class="pressroom-month"><%= month %></h4>
+      <% data.each do |content| %>
+        <% if content.type == 'story' %>
+          <article class="collapse row story">
+            <div class="small-12 columns">
+              <span class="pressroom-day hide-for-small"><%= (content.id == data.first.id) ? Date.parse(content.release_date).strftime('%-d %^b') : '' %></span>
+              <div class="details">
+                <a href=<%= pressroom_path(content.id, to_slug(content.title)) %>>
+                  <h3><%= content.title %></h3>
+                  <small class="text-justify"><%= content.summary %></small>
+                </a>
+              </div>
+            </div>
+          </article>
+        <% else %>
+          <article class="collapse row clipping">
+            <div class="small-12 columns">
+              <span class="pressroom-day hide-for-small"><%= (content.id == data.first.id) ? Date.parse(content.release_date).strftime('%-d %^b') : '' %></span>
+              <div class="details">
+                <a href="#">
+                  <h3><%= content.title %></h3>
+                  <small>
+                    <i class="ss-redirect"/>
+                    <span><%= "#{t('pressroom.timeline.clipping.source')} #{content.source}" %></span>
+                  </small>
+                </a>
+              </div>
+            </div>
+          </article>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div class="row" id="paging">
+  <% if @timeline.paging.try(:first).present? %>
+    <a href=<%= "/?limit=#{@limit}&page=1" %>><%= t('pagination.first') %></a>
+  <% end %>
+  <% if @timeline.paging.try(:previous).present? %>
+    <a href=<%= "/?#{@timeline.paging.previous.split('?').last}" %>><%= t('pagination.previous') %></a>
+  <% end %>
+  <% if @next_timeline_page.try(:data).present? %>
+    <a href=<%= "/?limit=#{@limit}&page=#{@next_page}" %>><%= t('pagination.next') %></a>
+  <% end %>
+</div>
+
+

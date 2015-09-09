@@ -1,0 +1,7 @@
+<% presskits.each do |presskit| %>
+  <% if presskit.media.present? %>
+    <div class="presskit-title">
+      <a href=<%= presskit_path(presskit.id, to_slug(presskit.title)) %>><%= "#{t('presskit.view')} #{presskit.title}" %></a>
+    </div>
+  <% end %>
+<% end %>
