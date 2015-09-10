@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["adam.bahlke@hitfoxgroup.com"]
   s.homepage    = "https://github.com/HitFox/foxynews"
   s.summary     = "Foxynews connects with a PR.co account and lets users access their pressrooms, presskits, timelines, stories, and clippings"
-  s.description = "TODO: Description of Foxynews."
+  s.description = "Foxynews provides a Rails Engine skin to your PR.co account. By default you can mount the Pressrooms and Presskits controllers, which follow the design and classnames of the PR.co basic layout. Otherwise, you can set up your own custom layouts using the parials."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
