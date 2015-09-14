@@ -13,35 +13,35 @@ class Foxynews::PresskitSetter
 
       begin
         presskits = Foxynews::Parser.data('/presskits.json', options)
-      rescue
-        raise
-      else
-        if presskits.has_key?('data')
-          return Foxynews::PresskitSetter.new(
-            presskits['data'].each_with_object(data = []) {|pk| data << Foxynews::Presskit.new(pk) },
-            Foxynews::Paging.new(presskits['paging'])
-          )
-        else
-          return false
-        end
+      rescue StandardError => error
+        raise GenericError(error.message)
       end
 
-
+      if presskits.has_key?('data')
+        return Foxynews::PresskitSetter.new(
+          presskits['data'].each_with_object(data = []) {|pk| data << Foxynews::Presskit.new(pk) },
+          Foxynews::Paging.new(presskits['paging'])
+        )
+      else
+        return false
+      end
     end
 
     #maps to /v1/pressrooms/:pressroom_id/presskits/:id.json
     def find(id)
       begin
         presskit = Foxynews::Parser.data("/presskits/#{id}.json")
-      rescue
-        raise
+      rescue StandardError => error
+        raise GenericError(error.message)
+      end
+
+      if presskit.has_key?('data')
+        return Foxynews::Presskit.new(presskit['data'])
       else
-        if presskit.has_key?('data')
-          return Foxynews::Presskit.new(presskit['data'])
-        else
-          return false
-        end
+        return false
       end
     end
+
   end
+
 end

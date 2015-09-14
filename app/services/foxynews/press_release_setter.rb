@@ -15,17 +15,17 @@ class Foxynews::PressReleaseSetter
 
       begin
         press_releases = Foxynews::Parser.data('/press_releases.json', options)
-      rescue
-        raise
+      rescue StandardError => error
+        raise GenericError(error.message)
+      end
+
+      if press_releases.has_key?('data')
+        return Foxynews::PressReleaseSetter.new(
+          press_releases['data'].each_with_object(data = []) {|pr| data << Foxynews::PressRelease.new(pr) },
+          Foxynews::Paging.new(press_releases['paging'])
+        )
       else
-        if press_releases.has_key?('data')
-          return Foxynews::PressReleaseSetter.new(
-            press_releases['data'].each_with_object(data = []) {|pr| data << Foxynews::PressRelease.new(pr) },
-            Foxynews::Paging.new(press_releases['paging'])
-          )
-        else
-          return false
-        end
+        return false
       end
     end
 
@@ -35,18 +35,20 @@ class Foxynews::PressReleaseSetter
 
       begin
         press_release = Foxynews::Parser.data("/press_releases/#{id}.json", options)
-      rescue
-        raise
+      rescue StandardError => error
+        raise GenericError(error.message)
+      end
+
+      if press_release.has_key?('data')
+        # return the hash in open struct to allow for @press_release.body_html calls
+        return Foxynews::PressRelease.new(press_release['data'])
       else
-        if press_release.has_key?('data')
-          # return the hash in open struct to allow for @press_release.body_html calls
-          return Foxynews::PressRelease.new(press_release['data'])
-        else
-          return false
-        end
+        return false
       end
     end
+
   end
+
 end
 
 
