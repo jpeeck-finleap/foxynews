@@ -27,6 +27,14 @@ class Foxynews::PressroomsController < ApplicationController
     end
   end
 
+  def archive
+    page = (params[:page].present?) ? params[:page] : 1
+    @limit = (params[:limit].present?) ? params[:limit] : 30
+
+    @timeline = Foxynews::PressroomSetter.timeline(page, @limit)
+    @next_page = page.to_i + 1
+    @next_timeline_page = Foxynews::PressroomSetter.timeline(@next_page, @limit)
+  end
 
   private
 

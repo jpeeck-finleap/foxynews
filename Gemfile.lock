@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foxynews (0.0.2)
+    foxynews (0.0.3)
       httparty (~> 0.13)
       rails (~> 4.2.3)
 

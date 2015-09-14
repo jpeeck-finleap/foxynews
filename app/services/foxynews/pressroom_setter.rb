@@ -7,6 +7,22 @@ class Foxynews::PressroomSetter
   end
 
 
+  def filter_timeline_by_language!(language)
+    data.each_with_object(localized = {}) do |month|
+      month.last.each do |item|
+        if item.language.include? language
+          if localized.has_key? month.first
+            localized[month.first] << item
+          else
+            localized[month.first] = [item]
+          end
+        end
+      end
+    end
+
+    self.data = localized
+  end
+
   class << self
     # maps to /v1/pressrooms/:id.json
     def my_pressroom

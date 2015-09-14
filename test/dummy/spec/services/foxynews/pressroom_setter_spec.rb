@@ -30,6 +30,19 @@ describe Foxynews::PressroomSetter do
     end
   end
 
+  describe ".filter_timeline_by_language!" do
+    before do
+      @timeline = Foxynews::PressroomSetter.timeline
+      @timeline.filter_timeline_by_language!('de')
+    end
+
+    it 'returns only german results' do
+      expect(@timeline.data['September 2015'].length).to eq(1)
+      expect(@timeline.data['August 2015'].length).to eq(1)
+      expect(@timeline.data['September 2015'].first.language).to eq('de')
+    end
+  end
+
   #TODO
   describe "#search" do
   end
