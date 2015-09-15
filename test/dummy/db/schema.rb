@@ -11,6 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150915120000) do
+
+  create_table "foxynews_featured_items", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "featured"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "foxynews_featured_items", ["title"], name: "index_foxynews_featured_items_on_title"
 
 end
