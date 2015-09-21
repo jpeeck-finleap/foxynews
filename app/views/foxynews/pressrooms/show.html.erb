@@ -1,8 +1,21 @@
 <h1><%= @press_release.title %></h1>
 <h2><%= @press_release.subtitle %></h2>
 
-<div class="press-release">
-  <%= @press_release.body_html.html_safe %>
+<div class='press-release'>
+  <% @press_release.parsed_content.each do |content_block| %>
+    <% if content_block['type'] == 'textarea' %>
+      <%= content_block['data']['body'].html_safe %>
+    <% elsif content_block['type'] == 'quote' %>
+      <div class='block-quote'>
+        <%= content_block['data']['quote'].html_safe %>
+        <span class='cite'><%= (content_block['data'].has_key? 'cite') ? content_block['data']['cite'].html_safe : '' %></span>
+      </div>
+    <% elsif content_block['type'] == 'media' %>
+      <% content_block['data']['json'].each do |media| %>
+        <img src=<%= media['sizes']['medium']['url'] %> width=<%= media['sizes']['medium']['width'] %> height=<%= media['sizes']['medium']['height'] %> alt=<%= media['sizes']['title'] %>/>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
 
 
