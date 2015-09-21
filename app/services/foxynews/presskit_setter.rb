@@ -8,8 +8,9 @@ class Foxynews::PresskitSetter
 
   class << self
     #maps to /v1/pressrooms/:pressroom_id/presskits.json
-    def all(page = 1, limit = 30)
-      options = {query: {page: page, limit: limit}}
+    #pagination options take page and limit parameters
+    def all(pagination_options = {})
+      options = {query: pagination_options}
 
       begin
         presskits = Foxynews::Parser.data('/presskits.json', options)

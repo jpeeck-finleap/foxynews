@@ -2,6 +2,7 @@ en:
   presskit:
     download: Download
     view: View
+    view_with_title: 'View %{title}'
   pressroom:
     main_website: Main Website
     company_blog: Company Blog
@@ -14,10 +15,10 @@ en:
     about: About
     timeline:
       clipping:
-        source: 'Source:'
+        source: 'Source: %{source}'
       paging:
         first: First
-        previous: Previous
+        previous: Prev
         next: Next
   press_release:
     read: Read Press Release

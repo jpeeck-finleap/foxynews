@@ -1,25 +1,25 @@
 <div class="collapse press_releases press_releases_index row">
   <main id="content" role="main">
-    <%= render partial: 'foxynews/partials/featured_press_release', locals: {press_release: @press_release } %>
+    <%= render partial: 'foxynews/partials/featured_press_release', locals: {press_release: @press_release } if @press_release.present? %>
     <%= render partial: 'foxynews/partials/timeline', locals: {timeline: @timeline} %>
     <div class="row">
       <div class="default_content_block"></div>
     </div>
-    <%= render partial: 'foxynews/partials/pressroom_about', locals: {pressroom: @my_pressroom} %>
+    <%= render partial: 'foxynews/partials/pressroom_about', locals: {pressroom: pressroom} %>
   </main>
   <aside id="sidebar">
     <section id="logo">
-      <a href="#"><img id="company_logo" alt="<%= @my_pressroom.name %> logo" src=<%= @my_pressroom.logo['small'] %> /></a>
+      <a href="#"><img id="company_logo" alt="<%= pressroom.name %> logo" src=<%= pressroom.logo['small'] %> /></a>
     </section>
     <section id="name">
       <h1>
         <a id="title_text" href="#">
-          <%= @my_pressroom.name %>
+          <%= pressroom.name %>
           <span id="subtitle_text">pressroom</span>
         </a>
       </h1>
     </section>
-    <%= render partial: 'foxynews/partials/contact_panels', locals: {pressroom: @my_pressroom} %>
-    <%= render partial: 'foxynews/partials/presskits', locals: {presskits: @presskits } %>
+    <%= render partial: 'foxynews/partials/contact_panels', locals: {pressroom: pressroom} %>
+    <%= render partial: 'foxynews/partials/presskits', locals: {presskits: presskit.data } %>
   </aside>
 </div>

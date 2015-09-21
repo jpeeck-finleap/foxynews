@@ -3,9 +3,7 @@ class Foxynews::PresskitsController < ApplicationController
 
 
   def show
-    @presskit = Foxynews::PresskitSetter.find(params[:id])
-
-    unless @presskit.present?
+    unless @presskit = Foxynews::PresskitSetter.find(params[:id])
       redirect_to root_path, flash: { error: I18n.t('error')}
     end
   end

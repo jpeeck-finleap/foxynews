@@ -20,6 +20,7 @@ RSpec.describe 'Pressroom functionality' do
   pr_about = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 
   before do
+    featured_item = Foxynews::FeaturedItem.create(article_id: 109544, title: 'Once more, dear Palcontents, once more!', featured: true)
     visit '/'
   end
 

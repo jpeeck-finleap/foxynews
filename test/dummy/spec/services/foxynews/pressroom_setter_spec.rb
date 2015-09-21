@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe Foxynews::PressroomSetter do
 
-  describe "#my_pressroom" do
+  describe "#pressroom" do
     it 'returns a pressroom object' do
-      pressroom = Foxynews::PressroomSetter.my_pressroom
+      pressroom = Foxynews::PressroomSetter.pressroom
 
       expect(pressroom.class).to eq(Foxynews::Pressroom)
       expect(pressroom.id).to eq(60679)

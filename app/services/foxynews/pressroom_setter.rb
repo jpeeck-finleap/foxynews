@@ -25,7 +25,7 @@ class Foxynews::PressroomSetter
 
   class << self
     # maps to /v1/pressrooms/:id.json
-    def my_pressroom
+    def pressroom
       begin
         pressroom = Foxynews::Parser.data('.json')
       rescue StandardError => error
@@ -37,8 +37,8 @@ class Foxynews::PressroomSetter
     end
 
     # maps to /v1/pressrooms/:id/timeline.json
-    def timeline(page = 1, limit = 30)
-      options = {query: {page: page, limit: limit}}
+    def timeline(pagination_options = {})
+      options = {query: pagination_options}
 
 
       begin

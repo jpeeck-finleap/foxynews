@@ -1,5 +1,4 @@
 class Foxynews::FeaturedItem < ActiveRecord::Base
 
-  validates :article, presence: true
-  validates :title, presence: true
+  validates :article_id, :title, presence: true
 end
