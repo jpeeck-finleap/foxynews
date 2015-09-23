@@ -1,3 +1,41 @@
 = Foxynews
 
-This project rocks and uses MIT-LICENSE.
+This is a Rails wrapper to the PR.co API, which pulls in your PR.co content and lets you display it completely on your own website. This lets you keep the SEO juice that comes from your press releases and have more control over styling.
+
+As a namespaced Rails engine, +foxynews+ can be easily overwritten to suit your individual needs.
+
+== Installation
+
+  # add the gem to your gemfile
+  gem 'foxynews'
+
+  # bundle
+  bundle install
+
+  # generate the initializer
+  rails g foxynews:initializer
+
+  # mount the engine in your routes
+  mount Foxynews::Engine => '/pr', as: 'foxynews'
+
+In the generated +foxynews.rb+, change +YOUR_PR_CO_ID_HERE+ to your PR.co pressroom ID.
+
+== Usage
+
+By default a pressroom in your app is accessible at +/pr/pressrooms+.
+
+Other routes are:
+
+* pr/pressrooms/show/:id
+
+* pr/pressrooms/archive
+
+* pr/presskit/show/:id
+
+Archives display older articles, presskits display individual PR.co presskits.
+
+== Version number
+
+Current version can be found here[https://github.com/HitFox/foxynews/blob/master/lib/foxynews/version.rb]
+
+== Changelog
