@@ -11,6 +11,10 @@ class Foxynews::PressRelease
     end
   end
 
+  def short_summary
+    summary.split(' ')[0..99].join(' ') + '...'
+  end
+
   def parsed_content
     json = JSON.parse(content_as_json)
     return json['data']

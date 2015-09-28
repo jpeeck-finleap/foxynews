@@ -20,6 +20,8 @@ en:
         first: First
         previous: Prev
         next: Next
+    show:
+      back: Back
   press_release:
     read: Read Press Release
   pagination:
