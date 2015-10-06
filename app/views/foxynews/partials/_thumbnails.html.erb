@@ -1,0 +1,29 @@
+<ul class="media-preview">
+  <% presskit.media_items(limit).each do |media| %>
+    <li class="media-preview-item">
+      <a class="media-preview__modal-trigger" href=<%= media.sizes['large']['url']%> download=<%= media.title.gsub(/[^\w-]/, '') %> data-original=<%= media.sizes['original']['url'] %>>
+        <img class="media-preview-item__image" src=<%= media.sizes['medium']['url'] %> height=<%= media.sizes['medium']['height'] %> width=<%= media.sizes['medium']['width'] %>/>
+      </a>
+    </li>
+  <% end %>
+  <li class="media-preview-item media-preview__link">
+    <% if presskit.present? %>
+      <%= link_to foxynews.presskit_path(presskit.id, to_slug(presskit.title)), class: 'media-preview__link' do %>
+        <i class="pressroom_icon"/>
+        <%= t('presskit.see_all') %>
+      <% end %>
+    <% end %>
+  </li>
+</ul>
+
+<%= content_for :modal_content do %>
+  <div class="media-modal__item media-item">
+    <h3 class="media-modal__title"></h3>
+    <a class="media-modal__link" href='' download=''>
+      <img class="media-modal__image" src=''/>
+      <div class="media-item__cta"><%= t('presskit.download') %></div>
+    </a>
+  </div>
+<% end %>
+
+<%= render partial: "foxynews/partials/modal", locals: {id: 'media-modal'} %>

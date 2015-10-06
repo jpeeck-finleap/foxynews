@@ -12,4 +12,8 @@ class Foxynews::Presskit
       false
     end
   end
+
+  def media_items(limit = 1)
+    media.take(limit)
+  end
 end

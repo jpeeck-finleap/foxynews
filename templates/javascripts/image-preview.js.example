@@ -1,0 +1,42 @@
+$(document).ready(function() {
+  var $body = $('body');
+  var $mediaModal = $('#media-modal');
+
+  function openMediaModal(imgSrc, src, title) {
+    var $mediaImage = $('<img class="media-modal__image" src="' + imgSrc +'">');
+
+    $mediaModal.find('.media-modal__image').replaceWith($mediaImage);
+    $mediaModal.find('.media-modal__title').text(title);
+    $mediaModal.find('.media-modal__link').attr({
+      'href': src,
+      'download': title
+    })
+
+    $mediaModal.addClass('modal--visible');
+    $body.addClass('body--hide-scroll');
+  }
+
+  function closeMediaModal() {
+    $('#media-modal').removeClass('modal--visible');
+    $('body').removeClass('body--hide-scroll');
+  }
+
+  $('.media-preview__modal-trigger').on('click', function(e) {
+    var $self = $(this);
+
+    e.preventDefault();
+    openMediaModal($self.attr('href'), $self.attr('data-original'), $self.attr('download'));
+  });
+
+  $('.modal__close').on('click', function() {
+    closeMediaModal();
+  });
+
+  $('.modal').on('click', function(e) {
+    console.log(!e.target.closest('.modal__body'))
+    if (!$(e.target).closest('.modal__body').length) {
+      closeMediaModal();
+    }
+  });
+
+});

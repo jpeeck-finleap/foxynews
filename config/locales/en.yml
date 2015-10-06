@@ -3,6 +3,7 @@ en:
     download: Download
     view: View
     view_with_title: 'View %{title}'
+    see_all: See all
   pressroom:
     main_website: Main Website
     company_blog: Company Blog
