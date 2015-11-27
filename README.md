@@ -3,10 +3,10 @@
 Foxynew
 ==============
 
-[![Build Status](https://img.shields.io/travis/HitFox/cm-sms-rails.svg?style=flat-square)](https://travis-ci.org/HitFox/cm-sms-rails)
-[![Gem](https://img.shields.io/gem/dt/cm-sms-rails.svg?style=flat-square)](https://rubygems.org/gems/cm-sms-rails)
-[![Code Climate](https://img.shields.io/codeclimate/github/HitFox/cm-sms-rails.svg?style=flat-square)](https://codeclimate.com/github/HitFox/cm-sms-rails)
-[![Coverage](https://img.shields.io/coveralls/HitFox/cm-sms-rails.svg?style=flat-square)](https://coveralls.io/github/HitFox/cm-sms-rails)
+[![Build Status](https://img.shields.io/travis/HitFox/foxynews.svg?style=flat-square)](https://travis-ci.org/HitFox/foxynews)
+[![Gem](https://img.shields.io/gem/dt/foxynews.svg?style=flat-square)](https://rubygems.org/gems/foxynews)
+[![Code Climate](https://img.shields.io/codeclimate/github/HitFox/foxynews.svg?style=flat-square)](https://codeclimate.com/github/HitFox/foxynews)
+[![Coverage](https://img.shields.io/coveralls/HitFox/foxynews.svg?style=flat-square)](https://coveralls.io/github/HitFox/foxynews)
 
 Description
 -----------
